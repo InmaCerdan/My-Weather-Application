@@ -1,0 +1,20 @@
+body {
+  background-color: #e7eaf6;
+  font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.box-1 {
+  background-color: #a2a8d3;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.114);
+}
+
+footer {
+  text-align: center;
+  color: #113f67;
+}
