@@ -15,12 +15,13 @@
   <body>
     <div class="box-1">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city..."
             required
             class="search-form-bar"
+            id="search-form-input"
           />
           <input type="submit" value="Search" class="search-form-button" />
         </form>
@@ -29,7 +30,7 @@
       <main>
         <div class="weather-app-data">
           <div>
-            <h1 class="weather-app-city">London</h1>
+            <h1 class="weather-app-city" id="weather-app-city">London</h1>
             <p class="weather-app-details">
               Monday<br />
               01/01/2025<br />
@@ -60,5 +61,6 @@
         >Netlify</a
       >.
     </footer>
+    <script src="src/index.js"></script>
   </body>
 </html>
