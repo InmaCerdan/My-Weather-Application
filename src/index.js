@@ -10,6 +10,8 @@ function updateInfo(response) {
   let date = new Date(response.data.time * 1000);
   let year = document.querySelector("#year");
 
+  let iconElement = document.querySelector("#icon");
+
   cityElement.innerHTML = response.data.city;
 
   timeElement.innerHTML = formatDate(date);
@@ -19,6 +21,10 @@ function updateInfo(response) {
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="icon"/>`;
+
+  console.log(response.data);
 }
 
 function formatDate(date) {
@@ -40,7 +46,7 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes} `;
 }
 
 function searchCity(city) {
