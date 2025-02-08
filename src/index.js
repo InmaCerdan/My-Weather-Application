@@ -24,7 +24,7 @@ function updateInfo(response) {
 
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="icon"/>`;
 
-  console.log(response.data);
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -61,12 +61,15 @@ function searchForACity(event) {
   searchCity(searchInput.value);
 }
 
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", searchForACity);
+function getForecast(city) {
+  let apiKey = "a0803184bfa38e72170b6eo87t966a8b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
-searchCity("Madrid");
+function displayForecast(response) {
+  console.log(response.data);
 
-function displayForecast() {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -91,4 +94,7 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHtml;
 }
 
-displayForecast();
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", searchForACity);
+
+searchCity("Madrid");
